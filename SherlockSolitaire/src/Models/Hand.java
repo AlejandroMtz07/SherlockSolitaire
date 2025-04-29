@@ -12,14 +12,11 @@ public class Hand {
         cardsInHand = new ArrayList<>();
     }
 
-    //Method that count the number of cards of the same Number type
-    public long numberOfNumberTypeCards(){
-        return cardsInHand.stream().filter(card->card.getCardType().equals("Number")).count();
-    }
 
-    //Method that count the number of cards of the same Letter type
-    public long numberOfLetterTypeCards(){
-        return cardsInHand.stream().filter(card->card.getCardType().equals("Letter")).count();
+    //Method that return true if there are three cards of the same type
+    public boolean areThreeCardsOfTheSameType(){
+        return (cardsInHand.stream().filter(card->card.getCardType().equals("Number")).count() == 3)||
+                (cardsInHand.stream().filter(card->card.getCardType().equals("Letter")).count() == 3);
     }
 
     //Method that checks if the card types are all the same

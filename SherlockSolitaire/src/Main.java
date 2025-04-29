@@ -16,7 +16,10 @@ public class Main {
         board.giveCards(hand);
         System.out.println(hand);
         board.addOfficeCard(office,hand,0,1);
-        board.addOfficeCard(office,hand,0,5);
+        board.addOfficeCard(office,hand,0,1);
+        board.addOfficeCard(office,hand,0,2);
+        board.addOfficeCard(office,hand,0,2);
+        System.out.println(office.checkCardPattern());
         System.out.println(office);
 
     }
