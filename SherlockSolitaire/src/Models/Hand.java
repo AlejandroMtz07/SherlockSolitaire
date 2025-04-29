@@ -28,14 +28,10 @@ public class Hand {
                 (cardsInHand.stream().filter(card->card.getCardType().equals("Letter")).count()==4);
     }
 
-    //Method that return the card selected and put it in the board
-    public Card putCardInBoard(int cardPosition){
-        return cardsInHand.get(cardPosition);
+    @Override
+    public String toString() {
+        return "Cards in hand: \n" + cardsInHand;
     }
-
-    //
-
-
 
     public List<Card> getCardsInHand() {
         return cardsInHand;
