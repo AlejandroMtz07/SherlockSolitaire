@@ -11,9 +11,9 @@ public class DiscardDeck {
         discardDeck = new ArrayList<Card>();
     }
 
-    //Add method send discarded cars to the deck
+    //TODO Add method send discarded cars to the deck
 
-    //Add method extract card in the discardDeck
+    //TODO Add method extract card in the discardDeck
 
 
 
