@@ -15,12 +15,16 @@ public class Main {
         //Making tests
         board.giveCards(hand);
         System.out.println(hand);
+        //Adding cards to the office
         board.addOfficeCard(office,hand,0,1);
         board.addOfficeCard(office,hand,0,1);
         board.addOfficeCard(office,hand,0,2);
         board.addOfficeCard(office,hand,0,2);
+
         System.out.println(office.checkCardPattern());
+        System.out.println("Are two cards in any column: "+office.areTwoCardsInAnyColumn());
         System.out.println(office);
+
 
     }
 }

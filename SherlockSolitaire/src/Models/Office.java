@@ -1,16 +1,17 @@
 package Models;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import Enums.Letters;
+import Enums.Numbers;
+
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Office {
 
-    List<Card> fristRow;
-    List<Card> secondRow;
-    List<Card> thirdRow;
-    List<Card> fourthRow;
+    private List<Card> fristRow;
+    private List<Card> secondRow;
+    private List<Card> thirdRow;
+    private List<Card> fourthRow;
 
     public Office() {
         fristRow = new ArrayList<>();
@@ -19,6 +20,7 @@ public class Office {
         fourthRow = new ArrayList<>();
     }
 
+    //TODO Add input validations
     public void addCardToARow(Card card,int column) {
         switch (column) {
             case 1:
@@ -36,6 +38,30 @@ public class Office {
             default:
                 throw new IndexOutOfBoundsException();
         }
+    }
+
+    //Method that checks if are two cards of the same value in any column
+    public boolean areTwoCardsInAnyColumn(){
+        return areTwoCardsOfTheSameValue(getFirstRow())||
+                areTwoCardsOfTheSameValue(getSecondRow())||
+                areTwoCardsOfTheSameValue(getThirdRow())||
+                areTwoCardsOfTheSameValue(getFourthRow());
+    }
+
+    //Method that checks if are two cards of the same value in the list passed by argument
+    private boolean areTwoCardsOfTheSameValue(List<Card> column){
+        Set<Card> cardChecker = new HashSet<>();
+        for (Card card : column) {
+            if(!cardChecker.add(card)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //Method that checks if the first card in the office is a number
+    public boolean areTheFirstCardValueCorrect(List<Card> column){
+        return column.getFirst().getCardType().equals("Number");
     }
 
     //Method that checks if are two cards of same type in any column using areTwoCardsTogether method
