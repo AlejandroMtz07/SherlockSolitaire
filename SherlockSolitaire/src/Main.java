@@ -1,3 +1,4 @@
+
 import Models.Board;
 import Models.CrimeScene;
 import Models.Hand;
@@ -15,16 +16,14 @@ public class Main {
         //Making tests
         board.giveCards(hand);
         System.out.println(hand);
-        //Adding cards to the office
-        board.addOfficeCard(office,hand,0,1);
-        board.addOfficeCard(office,hand,0,1);
-        board.addOfficeCard(office,hand,0,2);
-        board.addOfficeCard(office,hand,0,2);
+        //Adding cards to the crime scene
+        board.addCrimeSceneCard(crimeScene,hand,0);
+        board.addCrimeSceneCard(crimeScene,hand,0);
+        board.addCrimeSceneCard(crimeScene,hand,0);
+        board.addCrimeSceneCard(crimeScene,hand,0);
 
-        System.out.println(office.checkCardPattern());
-        System.out.println("Are two cards in any column: "+office.areTwoCardsInAnyColumn());
-        System.out.println(office);
-
+        System.out.println(crimeScene);
+        System.out.println("Are two cards of the same value in the crime scene: "+crimeScene.areTwoCardsOfAnyType());
 
     }
 }

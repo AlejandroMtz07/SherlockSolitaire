@@ -1,10 +1,8 @@
 package Models;
 
-import Enums.Letters;
-import Enums.Numbers;
 
 import java.util.*;
-import java.util.stream.Collectors;
+
 
 public class Office {
 
@@ -48,6 +46,8 @@ public class Office {
                 areTwoCardsOfTheSameValue(getFourthRow());
     }
 
+    //TODO Make a method that returns the index of the repeated card
+
     //Method that checks if are two cards of the same value in the list passed by argument
     private boolean areTwoCardsOfTheSameValue(List<Card> column){
         Set<Card> cardChecker = new HashSet<>();
@@ -86,11 +86,6 @@ public class Office {
             }
         }
         return false;
-    }
-
-    //TODO Add the logic to print the list correctly, adding line breaks for every element
-    private String columnPrinter(List<Card> column){
-        return column.stream().map("- %s"::formatted).collect(Collectors.joining("\n"));
     }
 
 

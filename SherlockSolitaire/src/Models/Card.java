@@ -31,7 +31,13 @@ public class Card {
     public boolean equals(Object object) {
         if (object == null || getClass() != object.getClass()) return false;
         Card card = (Card) object;
-        return letterValue == card.letterValue && numberValue == card.numberValue;
+        if(this.letterValue != null && card.letterValue != null){
+            return this.letterValue == card.letterValue;
+        }
+        if(this.numberValue != null && card.numberValue != null){
+            return this.numberValue == card.numberValue;
+        }
+        return false;
     }
 
     @Override
@@ -45,7 +51,6 @@ public class Card {
     public Numbers getNumberValue() {
         return numberValue;
     }
-
     public String toString(){
         return this.cardType+" "+((this.letterValue==null)?numberValue:letterValue);
     }
