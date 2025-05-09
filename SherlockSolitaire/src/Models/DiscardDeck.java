@@ -12,9 +12,24 @@ public class DiscardDeck {
     }
 
     //TODO Add method send discarded cars to the deck
+    public void addCard(Card card) {
+        discardDeck.add(card);
+    }
 
-    //TODO Add method extract card in the discardDeck
+    /*
+    * Method that takes a position and return the corresponding card
+    */
+    public Card extractCard(int index) {
+        return discardDeck.remove(index);
+    }
 
 
+    public List<Card> getDiscardDeck() {
+        return discardDeck;
+    }
+
+    public String toString(){
+        return "Discard deck cards: "+((getDiscardDeck()==null)?"Nothin":getDiscardDeck());
+    }
 
 }

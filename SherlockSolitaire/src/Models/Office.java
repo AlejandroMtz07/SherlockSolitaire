@@ -10,12 +10,14 @@ public class Office {
     private List<Card> secondRow;
     private List<Card> thirdRow;
     private List<Card> fourthRow;
+    private int cardsPlaced;
 
     public Office() {
         fristRow = new ArrayList<>();
         secondRow = new ArrayList<>();
         thirdRow = new ArrayList<>();
         fourthRow = new ArrayList<>();
+        cardsPlaced = 0;
     }
 
     //TODO Add input validations
@@ -114,4 +116,8 @@ public class Office {
         return fourthRow;
     }
 
+
+    public int getCardsPlaced() {
+        return cardsPlaced;
+    }
 }

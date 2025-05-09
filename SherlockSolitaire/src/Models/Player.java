@@ -18,6 +18,13 @@ public class Player {
         woundsQuantity = woundsQuantity + 1;
     }
 
+    /*
+    * Method that checks if the player has lost the game
+    */
+    public boolean isGameOver(){
+        return woundsQuantity == 3;
+    }
+
     public int getWoundsQuantity(){
         return woundsQuantity;
     }
