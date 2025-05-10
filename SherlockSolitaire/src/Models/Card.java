@@ -15,11 +15,11 @@ public class Card {
     //TODO Check if we want to add colors for each card type
 
     public Card(Letters letter){
-        this.cardType = Colors.ANSI_GREEN+"Letter"+Colors.ANSI_RESET;
+        this.cardType = "Letter";
         this.letterValue = letter;
     }
     public Card(Numbers number){
-        this.cardType = Colors.ANSI_BLUE+"Number"+Colors.ANSI_RESET;
+        this.cardType = "Number";
         this.numberValue = number;
     }
 
@@ -52,7 +52,9 @@ public class Card {
         return numberValue;
     }
     public String toString(){
-        return this.cardType+" "+((this.letterValue==null)?numberValue:letterValue);
+        return this.cardType+" "+((this.letterValue==null)?
+                Colors.ANSI_BLUE+numberValue+Colors.ANSI_RESET:
+                Colors.ANSI_GREEN+letterValue+Colors.ANSI_RESET);
     }
 
 }

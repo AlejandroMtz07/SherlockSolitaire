@@ -21,11 +21,12 @@ public class CrimeScene {
     * Method that adds a card in the CrimeScene list checking if exist another card
     * with the same value in the crimeSceneCards list
     */
-    public void addCard(Card card,DiscardDeck discardDeck) {
+    public void addCard(Card card,DiscardDeck discardDeck,Player player) {
         crimeSceneCards.add(card);
-        if(areTwoCardsOfAnyType()){
+        if(areTwoCardsOfAnyValue()){
             discardDeck.addCard(card);
             crimeSceneCards.remove(card);
+            player.makeAWound();
         }
     }
 
@@ -62,7 +63,7 @@ public class CrimeScene {
     * Method that use the areTwoCardsOfThreat and areTwoCardsOfInvestigation methods
     * and returns false if there aren't two cards of the same value
     */
-    public boolean areTwoCardsOfAnyType() {
+    public boolean areTwoCardsOfAnyValue() {
         return (areTwoCardsOfInvestigation(Numbers.ONE)||
                 areTwoCardsOfInvestigation(Numbers.TWO)||
                 areTwoCardsOfInvestigation(Numbers.THREE)||
@@ -74,8 +75,37 @@ public class CrimeScene {
         );
     }
 
+    /*
+    * TODO
+    *  Make a method that check which power is activated
+    * */
+    public String checkPower(){
+        if(areTwoCardsOfInvestigation(Numbers.ONE)){
+            return "Move a card to the office from the crime scene";
+        }
+        if(areTwoCardsOfInvestigation(Numbers.TWO)){
+            return "Threat";
+        }
+        if(areTwoCardsOfInvestigation(Numbers.THREE)){
+            return "Move a card to the crime scene to the office";
+        }
+        if(areTwoCardsOfInvestigation(Numbers.FOUR)){
+            return "Take a card of the discard";
+        }
+        return "Nothin";
+    }
+
+
+
+    /*
+    * Method that reset the number of cards placed in the crime scene
+    */
+    public void resetCardsPlaced() {
+        cardsPlaced = 0;
+    }
+
     public String toString(){
-        return "Crime scene cards: "+((getCrimeSceneCards()==null)?"Nothin":getCrimeSceneCards());
+        return "Crime scene cards: \n"+((getCrimeSceneCards()==null)?"Nothin":getCrimeSceneCards());
     }
 
     public List<Card> getCrimeSceneCards() {
@@ -84,5 +114,9 @@ public class CrimeScene {
 
     public int getCardsPlaced() {
         return cardsPlaced;
+    }
+
+    public void setCardsPlaced(int cardsPlaced) {
+        this.cardsPlaced = cardsPlaced;
     }
 }

@@ -7,7 +7,7 @@ public class Player {
     private int woundsQuantity;
 
 
-    public Player(String name, String lastName, int woundsQuantity) {
+    public Player(String name, String lastName) {
         this.name = name;
         this.lastName = lastName;
         this.woundsQuantity = 0;

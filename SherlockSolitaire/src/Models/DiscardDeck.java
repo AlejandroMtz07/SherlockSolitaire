@@ -11,7 +11,6 @@ public class DiscardDeck {
         discardDeck = new ArrayList<Card>();
     }
 
-    //TODO Add method send discarded cars to the deck
     public void addCard(Card card) {
         discardDeck.add(card);
     }
@@ -28,8 +27,9 @@ public class DiscardDeck {
         return discardDeck;
     }
 
+    @Override
     public String toString(){
-        return "Discard deck cards: "+((getDiscardDeck()==null)?"Nothin":getDiscardDeck());
+        return "Discard deck cards: "+((getDiscardDeck().isEmpty())?"Nothin":getDiscardDeck());
     }
 
 }

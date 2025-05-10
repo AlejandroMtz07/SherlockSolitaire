@@ -1,15 +1,17 @@
 package Models;
 
 
+import Colors.Colors;
+
 import java.util.*;
 
 
 public class Office {
 
-    private List<Card> fristRow;
-    private List<Card> secondRow;
-    private List<Card> thirdRow;
-    private List<Card> fourthRow;
+    private final List<Card> fristRow;
+    private final List<Card> secondRow;
+    private final List<Card> thirdRow;
+    private final List<Card> fourthRow;
     private int cardsPlaced;
 
     public Office() {
@@ -21,26 +23,32 @@ public class Office {
     }
 
     //TODO Add input validations
-    public void addCardToARow(Card card,int column) {
+    public void addCardToARow(Card card, int column) {
         switch (column) {
-            case 1:
+            case 1 -> {
+                if (areTheFirstCardTypeIncorrect(card)) break;
                 fristRow.add(card);
-                break;
-            case 2:
+            }
+            case 2 -> {
+                if (areTheFirstCardTypeIncorrect(card)) break;
                 secondRow.add(card);
-                break;
-            case 3:
+            }
+            case 3 -> {
+                if (areTheFirstCardTypeIncorrect(card)) break;
                 thirdRow.add(card);
-                break;
-            case 4:
+            }
+            case 4 -> {
+                if (areTheFirstCardTypeIncorrect(card)) break;
                 fourthRow.add(card);
-                break;
-            default:
-                throw new IndexOutOfBoundsException();
+            }
+            default -> {
+            }
         }
     }
 
-    //Method that checks if are two cards of the same value in any column
+    /*
+    * Method that checks if are two cards of the same value in any column
+    */
     public boolean areTwoCardsInAnyColumn(){
         return areTwoCardsOfTheSameValue(getFirstRow())||
                 areTwoCardsOfTheSameValue(getSecondRow())||
@@ -48,9 +56,10 @@ public class Office {
                 areTwoCardsOfTheSameValue(getFourthRow());
     }
 
-    //TODO Make a method that returns the index of the repeated card
-
-    //Method that checks if are two cards of the same value in the list passed by argument
+    /*
+    * Method that checks if are two cards of the same value in the list passed by argument
+    * This method is used to check if are two cards of the same Letter value
+    * */
     private boolean areTwoCardsOfTheSameValue(List<Card> column){
         Set<Card> cardChecker = new HashSet<>();
         for (Card card : column) {
@@ -62,11 +71,13 @@ public class Office {
     }
 
     //Method that checks if the first card in the office is a number
-    public boolean areTheFirstCardValueCorrect(List<Card> column){
-        return column.getFirst().getCardType().equals("Number");
+    public boolean areTheFirstCardTypeIncorrect(Card card){
+        return fristRow.isEmpty() && card.getCardType().equals(Colors.ANSI_GREEN+"Letter"+Colors.ANSI_RESET);
     }
 
-    //Method that checks if are two cards of same type in any column using areTwoCardsTogether method
+    /*
+    * Method that checks if are two cards of same value in any column using areTwoCardsTogether method
+    * following the pattern of Letter - Number - Letter - Number*/
     public boolean checkCardPattern(){
         return areTwoCardsTogether(getFirstRow())||
                 areTwoCardsTogether(getSecondRow())||
@@ -88,6 +99,12 @@ public class Office {
             }
         }
         return false;
+    }
+    /*
+    * Method that resets the number of cards placed in the office
+    */
+    public void resetCardsPlaced(){
+        cardsPlaced = 0;
     }
 
 
@@ -119,5 +136,9 @@ public class Office {
 
     public int getCardsPlaced() {
         return cardsPlaced;
+    }
+
+    public void setCardsPlaced(int cardsPlaced) {
+        this.cardsPlaced = cardsPlaced;
     }
 }

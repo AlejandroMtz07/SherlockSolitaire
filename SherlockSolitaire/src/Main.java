@@ -1,6 +1,8 @@
 
 import Models.*;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -10,22 +12,23 @@ public class Main {
         Office office = new Office();
         CrimeScene crimeScene = new CrimeScene();
         DiscardDeck discardDeck = new DiscardDeck();
+        Player player;
 
-        //Making tests
-        board.giveCards(hand);
-        System.out.println(hand);
-        //Adding cards to the crime scene
-        board.addCrimeSceneCard(crimeScene,hand,discardDeck,0);
-        System.out.println(crimeScene);
-        board.addCrimeSceneCard(crimeScene,hand,discardDeck,0);
-        System.out.println(crimeScene);
-        board.addCrimeSceneCard(crimeScene,hand,discardDeck,0);
-        System.out.println(crimeScene);
-        board.addCrimeSceneCard(crimeScene,hand,discardDeck,0);
+        //Scanner
+        Scanner sc = new Scanner(System.in);
 
-        //Printing the
-        System.out.println(crimeScene);
-        System.out.println(discardDeck);
+        boolean gameOver = true;
+
+        while (gameOver) {
+            System.out.println("Enter your name");
+            String name = sc.nextLine();
+            System.out.println("Enter your last name");
+            String lastName = sc.nextLine();
+            player = new Player(name, lastName);
+            board.giveCards(hand);
+            System.out.println("Your hand: "+hand);
+
+        }
 
 
     }
