@@ -12,23 +12,12 @@ public class Main {
         Office office = new Office();
         CrimeScene crimeScene = new CrimeScene();
         DiscardDeck discardDeck = new DiscardDeck();
-        Player player;
+        Player player = new Player("Juanito","M.");
 
-        //Scanner
-        Scanner sc = new Scanner(System.in);
+        board.giveCards(hand);
+        System.out.println(hand);
 
-        boolean gameOver = true;
 
-        while (gameOver) {
-            System.out.println("Enter your name");
-            String name = sc.nextLine();
-            System.out.println("Enter your last name");
-            String lastName = sc.nextLine();
-            player = new Player(name, lastName);
-            board.giveCards(hand);
-            System.out.println("Your hand: "+hand);
-
-        }
 
 
     }

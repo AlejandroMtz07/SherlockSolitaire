@@ -61,6 +61,10 @@ public class Hand {
                 (cardsInHand.stream().filter(card->card.getCardType().equals("Letter")).count()==4);
     }
 
+    public Card getCardAtIndex(int index) {
+        return cardsInHand.get(index);
+    }
+
     /*
     * Method that dispose all the cards if all are of the same type or three al of the same value
     */
